@@ -21,6 +21,5 @@ public class MessageSender {
 
     public void sendMessage(@NonNull final String message) {
         rabbitTemplate.convertAndSend(rabbitMqConfigReader.getExchange(), rabbitMqConfigReader.getResponseRoutingKey(), message);
-        System.out.println("Message sent to response queue!");
     }
 }
