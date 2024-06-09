@@ -2,7 +2,9 @@ package org.example.producer.messaging;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.NonNull;
 import org.example.commons.models.RequestModel;
+import org.example.producer.config.RabbitMqConfigReader;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -10,20 +12,21 @@ import org.springframework.stereotype.Component;
 @Component
 public class MessageSender {
 
-    private final RabbitTemplate rabbitTemplate;
-    private final RabbitMqConfig rabbitMqConfig;
+    @NonNull private final RabbitTemplate rabbitTemplate;
+    @NonNull private final RabbitMqConfigReader rabbitMqConfigReader;
 
     @Autowired
-    public MessageSender(RabbitTemplate rabbitTemplate, RabbitMqConfig rabbitMqConfig) {
+    public MessageSender(@NonNull RabbitTemplate rabbitTemplate,
+                         @NonNull RabbitMqConfigReader rabbitMqConfigReader) {
         this.rabbitTemplate = rabbitTemplate;
-        this.rabbitMqConfig = rabbitMqConfig;
+        this.rabbitMqConfigReader = rabbitMqConfigReader;
     }
 
     public void sendMessage(RequestModel requestModel) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             String serialized = objectMapper.writeValueAsString(requestModel);
-            rabbitTemplate.convertAndSend(rabbitMqConfig.getExchange(), rabbitMqConfig.getRequestRoutingKey(), serialized);
+            rabbitTemplate.convertAndSend(rabbitMqConfigReader.getExchange(), rabbitMqConfigReader.getRequestRoutingKey(), serialized);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }

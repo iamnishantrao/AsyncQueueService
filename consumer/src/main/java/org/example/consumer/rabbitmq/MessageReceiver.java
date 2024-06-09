@@ -29,4 +29,3 @@ public class MessageReceiver {
         consumerService.produceResponse("Message Consumed!");
     }
 }
-
