@@ -11,9 +11,9 @@ import lombok.NonNull;
 @NoArgsConstructor
 public class RequestModel {
 
-    @NonNull
-    private PatientModel patient;
+    @NonNull private String requestId;
 
-    @NonNull
-    private HospitalModel hospital;
+    @NonNull private PatientModel patient;
+
+    @NonNull private HospitalModel hospital;
 }

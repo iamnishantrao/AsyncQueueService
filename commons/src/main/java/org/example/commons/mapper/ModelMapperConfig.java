@@ -7,15 +7,11 @@ import org.example.commons.model.HospitalModel;
 import org.example.commons.model.PatientModel;
 import org.example.commons.model.RequestModel;
 import org.modelmapper.ModelMapper;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
-@Configuration
 public class ModelMapperConfig {
 
-    @Bean
-    public ModelMapper modelMapper() {
-        ModelMapper modelMapper = new ModelMapper();
+    public static ModelMapper modelMapper() {
+        final ModelMapper modelMapper = new ModelMapper();
         modelMapper.createTypeMap(PatientDto.class, PatientModel.class);
         modelMapper.createTypeMap(HospitalDto.class, HospitalModel.class);
         modelMapper.createTypeMap(RequestDto.class, RequestModel.class);

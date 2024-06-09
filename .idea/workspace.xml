@@ -5,22 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52f8df0a-e1f5-4547-a06d-5d7d5ffd2ec3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/model/ValidationError.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/util/Constants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/validator/Validator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/validator/common/ChainedValidatorImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/validator/common/EmailValidatorImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/validator/common/PhoneNumberValidatorImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/validator/requestdto/RequestDtoValidatorImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/validator/RequestDtoValidatorProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/commonprovider/CommonProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/mapper/ModelMapperConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/mapper/ModelMapperConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/models/HospitalModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/model/HospitalModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/models/PatientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/model/PatientModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/models/RequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/model/RequestModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/consumer/src/main/java/org/example/consumer/rabbitmq/MessageReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/consumer/src/main/java/org/example/consumer/rabbitmq/MessageReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/model/RequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/model/RequestModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/controller/ProducerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/controller/ProducerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/messaging/MessageSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/messaging/MessageSender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/service/ProducerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/service/ProducerService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
