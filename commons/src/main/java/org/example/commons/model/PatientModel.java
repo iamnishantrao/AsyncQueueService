@@ -1,4 +1,4 @@
-package org.example.commons.models;
+package org.example.commons.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

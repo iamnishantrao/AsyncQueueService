@@ -3,7 +3,7 @@ package org.example.producer.messaging;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.NonNull;
-import org.example.commons.models.RequestModel;
+import org.example.commons.model.RequestModel;
 import org.example.producer.config.RabbitMqConfigReader;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;

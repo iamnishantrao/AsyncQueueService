@@ -5,35 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52f8df0a-e1f5-4547-a06d-5d7d5ffd2ec3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commons/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/dto/HospitalDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/dto/PatientDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/dto/RequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/mapper/ModelMapperConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/models/HospitalModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/models/PatientModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/models/RequestModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consumer/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consumer/src/main/java/org/example/consumer/ConsumerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consumer/src/main/java/org/example/consumer/rabbitmq/MessageReceiver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consumer/src/main/java/org/example/consumer/rabbitmq/MessageSender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consumer/src/main/java/org/example/consumer/rabbitmq/RabbitMqConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consumer/src/main/java/org/example/consumer/service/ConsumerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consumer/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/producer/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/ProducerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/controller/ProducerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/messaging/MessageReceiver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/messaging/MessageSender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/messaging/RabbitMqConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/service/ProducerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/producer/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/model/ValidationError.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/util/Constants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/validator/Validator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/validator/common/ChainedValidatorImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/validator/common/EmailValidatorImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/validator/common/PhoneNumberValidatorImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/validator/requestdto/RequestDtoValidatorImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/validator/RequestDtoValidatorProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/mapper/ModelMapperConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/mapper/ModelMapperConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/models/HospitalModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/model/HospitalModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/models/PatientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/model/PatientModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/models/RequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/model/RequestModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/consumer/src/main/java/org/example/consumer/rabbitmq/MessageReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/consumer/src/main/java/org/example/consumer/rabbitmq/MessageReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/controller/ProducerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/controller/ProducerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/messaging/MessageSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/messaging/MessageSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/service/ProducerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/service/ProducerService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +67,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "inlay.hints",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -127,5 +116,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

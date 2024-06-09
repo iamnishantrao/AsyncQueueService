@@ -2,7 +2,7 @@ package org.example.consumer.rabbitmq;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.example.commons.models.RequestModel;
+import org.example.commons.model.RequestModel;
 import org.example.consumer.service.ConsumerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
