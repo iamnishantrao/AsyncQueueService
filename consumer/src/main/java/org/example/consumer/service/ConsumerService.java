@@ -1,5 +1,6 @@
 package org.example.consumer.service;
 
+import lombok.NonNull;
 import org.example.consumer.rabbitmq.MessageSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -7,14 +8,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class ConsumerService {
 
-    private final MessageSender messageSender;
+    @NonNull private final MessageSender messageSender;
 
     @Autowired
-    public ConsumerService(MessageSender messageSender) {
+    public ConsumerService(@NonNull final MessageSender messageSender) {
         this.messageSender = messageSender;
     }
 
-    public void produceResponse(String message) {
+    public void produceResponse(@NonNull final String message) {
         messageSender.sendMessage(message);
     }
 }

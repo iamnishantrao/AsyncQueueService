@@ -22,5 +22,5 @@ public class PatientModel {
     @NonNull
     private String email;
 
-    private int phone;
+    private String phone;
 }

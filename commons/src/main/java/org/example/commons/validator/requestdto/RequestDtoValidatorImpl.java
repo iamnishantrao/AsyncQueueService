@@ -6,7 +6,6 @@ import lombok.NonNull;
 import org.example.commons.dto.RequestDto;
 import org.example.commons.model.ValidationError;
 import org.example.commons.validator.Validator;
-import org.example.commons.validator.common.ChainedValidatorImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,17 +14,17 @@ import java.util.List;
 @Builder
 public class RequestDtoValidatorImpl implements Validator<RequestDto> {
 
-    @NonNull private final ChainedValidatorImpl<String> chainedEmailValidator;
-    @NonNull private final ChainedValidatorImpl<Integer> chainedPhoneValidator;
+    @NonNull private final Validator<String> emailValidator;
+    @NonNull private final Validator<String> phoneValidator;
 
     @Override
     public List<ValidationError> validate(@NonNull final RequestDto entity) {
 
         final ArrayList<ValidationError> errors = new ArrayList<>();
 
-        errors.addAll(chainedEmailValidator.validate(entity.getPatient().getEmail()));
-        errors.addAll(chainedPhoneValidator.validate(entity.getPatient().getPhone()));
-        errors.addAll(chainedPhoneValidator.validate(entity.getHospital().getContactNumber()));
+        errors.addAll(emailValidator.validate(entity.getPatient().getEmail()));
+        errors.addAll(phoneValidator.validate(entity.getPatient().getPhone()));
+        errors.addAll(phoneValidator.validate(entity.getHospital().getContactNumber()));
 
         return errors;
     }

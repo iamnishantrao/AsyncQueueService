@@ -19,5 +19,5 @@ public class HospitalModel {
     @NonNull
     private String hospitalAddress;
 
-    private int contactNumber;
+    private String contactNumber;
 }

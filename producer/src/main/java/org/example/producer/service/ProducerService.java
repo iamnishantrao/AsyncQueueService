@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.commons.dto.RequestDto;
 import org.example.commons.model.RequestModel;
 import org.example.commons.model.ValidationError;
+import org.example.commons.validator.Validator;
 import org.example.commons.validator.requestdto.RequestDtoValidatorImpl;
 import org.example.producer.messaging.MessageSender;
 import org.modelmapper.ModelMapper;
@@ -19,15 +20,15 @@ import java.util.UUID;
 public class ProducerService {
 
     @NonNull private final MessageSender messageSender;
-    @NonNull private final RequestDtoValidatorImpl requestDtoValidatorImpl;
+    @NonNull private final Validator validator;
     @NonNull private final ModelMapper modelMapper;
 
     @Autowired
     public ProducerService(@NonNull final MessageSender messageSender,
-                           @NonNull final RequestDtoValidatorImpl requestDtoValidatorImpl,
+                           @NonNull final RequestDtoValidatorImpl validator,
                            @NonNull final ModelMapper modelMapper) {
         this.messageSender = messageSender;
-        this.requestDtoValidatorImpl = requestDtoValidatorImpl;
+        this.validator = validator;
         this.modelMapper = modelMapper;
     }
 
@@ -44,7 +45,7 @@ public class ProducerService {
     }
 
     public List<ValidationError> validateRequest(@NonNull final RequestDto requestDto) {
-        return requestDtoValidatorImpl.validate(requestDto);
+        return validator.validate(requestDto);
     }
 
     public String getRequestId() {

@@ -20,15 +20,15 @@ public class RequestDtoValidatorProvider {
                 .validators(List.of(new EmailValidatorImpl()))
                 .build();
 
-        final ChainedValidatorImpl<Integer> phoneNumberChainedValidator = ChainedValidatorImpl
-                .<Integer>builder()
+        final ChainedValidatorImpl<String> phoneNumberChainedValidator = ChainedValidatorImpl
+                .<String>builder()
                 .validators(List.of(new PhoneNumberValidatorImpl()))
                 .build();
 
         return RequestDtoValidatorImpl
                 .builder()
-                .chainedEmailValidator(emailChainedValidator)
-                .chainedPhoneValidator(phoneNumberChainedValidator)
+                .emailValidator(emailChainedValidator)
+                .phoneValidator(phoneNumberChainedValidator)
                 .build();
 
     }

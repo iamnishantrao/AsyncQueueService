@@ -9,20 +9,20 @@ import java.util.regex.Pattern;
 
 import static org.example.commons.util.Constants.PHONE_NUMBER_VALIDATION_REGEX;
 
-public class PhoneNumberValidatorImpl implements Validator<Integer> {
+public class PhoneNumberValidatorImpl implements Validator<String> {
 
     @Override
-    public List<ValidationError> validate(@NonNull final Integer entity) {
+    public List<ValidationError> validate(@NonNull final String entity) {
 
         final boolean isValid = Pattern
                 .compile(PHONE_NUMBER_VALIDATION_REGEX)
-                .matcher(entity.toString())
+                .matcher(entity)
                 .matches();
         return isValid ? List.of() : List.of(
                 ValidationError
                         .builder()
                         .field("phoneNumber")
-                        .errorMessage(String.format("Provided phone number %d is not valid.", entity))
+                        .errorMessage(String.format("Provided phone number %s is not valid.", entity))
                         .build()
         );
     }

@@ -24,5 +24,5 @@ public class PatientDto {
     private String email;
 
     @NotBlank @NonNull
-    private int phone;
+    private String phone;
 }

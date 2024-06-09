@@ -37,7 +37,7 @@ public class ProducerController {
         final List<ValidationError> validationErrors = producerService.validateRequest(requestDTO);
         if (!validationErrors.isEmpty()) {
             log.info("RequestID {}. Validation errors: {}", requestId, validationErrors);
-            //return ResponseEntity.badRequest().body(validationErrors.toString());
+            return ResponseEntity.badRequest().body(validationErrors.toString());
         }
 
         try {

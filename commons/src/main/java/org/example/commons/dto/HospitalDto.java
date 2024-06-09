@@ -21,5 +21,5 @@ public class HospitalDto {
     private String hospitalAddress;
 
     @NotBlank @NonNull
-    private int contactNumber;
+    private String contactNumber;
 }
