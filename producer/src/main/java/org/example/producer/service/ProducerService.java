@@ -31,16 +31,16 @@ public class ProducerService {
         this.modelMapper = modelMapper;
     }
 
-    public String produceRequest(@NonNull final RequestDto requestDto,
-                                 @NonNull final String requestId) {
+    public void produceRequest(@NonNull final RequestDto requestDto,
+                               @NonNull final String requestId) {
         final RequestModel requestModel = modelMapper.map(requestDto, RequestModel.class);
+        log.debug("Converted request: {}", requestModel);
         requestModel.setRequestId(requestId);
         messageSender.sendMessage(requestModel);
-        return "Message produced successfully: " + requestModel;
     }
 
-    public void consumeResponse(String response) {
-        System.out.println("Message consumed successfully: " + response);
+    public void consumeResponse(@NonNull final String response) {
+        log.info("Message consumed successfully: {}", response);
     }
 
     public List<ValidationError> validateRequest(@NonNull final RequestDto requestDto) {

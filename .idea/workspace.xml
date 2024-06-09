@@ -5,12 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52f8df0a-e1f5-4547-a06d-5d7d5ffd2ec3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/commonprovider/CommonProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/exception/MalformedRequestException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/exception/RabbitMqException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/mapper/ModelMapperConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/mapper/ModelMapperConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/model/RequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/model/RequestModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/dto/HospitalDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/dto/HospitalDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/dto/PatientDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/dto/PatientDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/dto/RequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/commons/src/main/java/org/example/commons/dto/RequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/commonprovider/CommonProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/commonprovider/CommonProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/config/RabbitMqCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/config/RabbitMqCreator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/controller/ProducerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/controller/ProducerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/messaging/MessageListner.java" beforeDir="false" afterPath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/config/MessageListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/messaging/MessageReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/messaging/MessageReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/messaging/MessageSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/messaging/MessageSender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/service/ProducerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/producer/src/main/java/org/example/producer/service/ProducerService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +72,7 @@
       <recent name="org.example.producer.messaging" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.ProducerApplication">
+  <component name="RunManager" selected="Spring Boot.ConsumerApplication">
     <configuration name="ConsumerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="consumer" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.consumer.ConsumerApplication" />
@@ -101,6 +107,7 @@
       <workItem from="1717887827163" duration="3343000" />
       <workItem from="1717891183834" duration="5000" />
       <workItem from="1717891191310" duration="2931000" />
+      <workItem from="1717969294341" duration="732000" />
     </task>
     <servers />
   </component>

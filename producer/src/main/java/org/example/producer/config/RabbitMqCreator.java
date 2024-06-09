@@ -1,5 +1,6 @@
 package org.example.producer.config;
 
+import lombok.NonNull;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;
@@ -11,10 +12,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMqCreator {
 
-    private final RabbitMqConfigReader rabbitMqConfigReader;
+    @NonNull private final RabbitMqConfigReader rabbitMqConfigReader;
 
     @Autowired
-    public RabbitMqCreator(RabbitMqConfigReader rabbitMqConfigReader) {
+    public RabbitMqCreator(@NonNull final RabbitMqConfigReader rabbitMqConfigReader) {
         this.rabbitMqConfigReader = rabbitMqConfigReader;
     }
 
@@ -34,7 +35,8 @@ public class RabbitMqCreator {
     }
 
     @Bean
-    public Binding createRequestBinding(Queue createRequestQueue, TopicExchange createExchange) {
+    public Binding createRequestBinding(@NonNull final Queue createRequestQueue,
+                                        @NonNull final TopicExchange createExchange) {
         return BindingBuilder
                 .bind(createRequestQueue)
                 .to(createExchange)
@@ -42,7 +44,8 @@ public class RabbitMqCreator {
     }
 
     @Bean
-    public Binding createResponseBinding(Queue createResponseQueue, TopicExchange createExchange) {
+    public Binding createResponseBinding(@NonNull final Queue createResponseQueue,
+                                         @NonNull final TopicExchange createExchange) {
         return BindingBuilder
                 .bind(createResponseQueue)
                 .to(createExchange)

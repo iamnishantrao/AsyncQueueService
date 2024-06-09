@@ -1,29 +1,28 @@
 package org.example.commons.dto;
 
 import jakarta.validation.constraints.NotBlank;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NonNull;
+import lombok.*;
 
 /**
  * Data Transfer Object class for Patient to represent information related to a patient.
  */
-@Builder
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class PatientDto {
 
     @NotBlank
-    private final int patientId;
+    private int patientId;
 
     @NotBlank @NonNull
-    private final String firstName;
+    private String firstName;
 
     @NotBlank @NonNull
-    private final String lastName;
+    private String lastName;
 
     @NotBlank @NonNull
-    private final String email;
+    private String email;
 
     @NotBlank @NonNull
-    private final int phone;
+    private int phone;
 }

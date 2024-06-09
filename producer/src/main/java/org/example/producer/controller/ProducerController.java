@@ -5,6 +5,7 @@ import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.example.commons.dto.RequestDto;
 import org.example.commons.model.ValidationError;
+import org.example.producer.exception.MalformedRequestException;
 import org.example.producer.service.ProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -39,7 +40,16 @@ public class ProducerController {
             //return ResponseEntity.badRequest().body(validationErrors.toString());
         }
 
-        String result = producerService.produceRequest(requestDTO, requestId);
-        return ResponseEntity.ok("Processing Message: " + result);
+        try {
+            producerService.produceRequest(requestDTO, requestId);
+            log.info("Processed requestId: {} successfully", requestId);
+            return ResponseEntity.ok("Message processed successfully");
+        } catch (final MalformedRequestException e) {
+            log.info("RequestID {}. Malformed request: {}", requestId, e.getMessage());
+            return ResponseEntity.badRequest().body(e.getMessage());
+        } catch (final Exception e) {
+            log.error("Error processing requestId: {}. Error: {}", requestId, e.getMessage());
+            return ResponseEntity.internalServerError().body(e.getMessage());
+        }
     }
 }
