@@ -52,4 +52,12 @@ public class ProducerController {
             return ResponseEntity.internalServerError().body(e.getMessage());
         }
     }
+
+    @PostMapping("/batchProduce")
+    public ResponseEntity<String> batchProduceMessage(@Valid @RequestBody RequestDto requestDTO) {
+        for (int i = 0; i<100000; i++) {
+            produceMessage(requestDTO);
+        }
+        return ResponseEntity.ok("Message processed successfully");
+    }
 }

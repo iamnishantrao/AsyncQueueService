@@ -16,4 +16,6 @@ public class RabbitMqConfigReader {
     private String responseRoutingKey;
     private String dlqExchange;
     private String requestQueueDlq;
+    private String responseQueueConsumerConcurrency;
+    private int responseQueueConsumerBatchSize;
 }

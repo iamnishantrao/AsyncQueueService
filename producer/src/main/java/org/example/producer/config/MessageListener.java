@@ -28,6 +28,8 @@ public class MessageListener {
         simpleMessageListenerContainer.setConnectionFactory(connectionFactory);
         simpleMessageListenerContainer.setQueueNames(rabbitMqConfigReader.getResponseQueue());
         simpleMessageListenerContainer.setMessageListener(messageListenerAdapter);
+        simpleMessageListenerContainer.setConcurrency(rabbitMqConfigReader.getResponseQueueConsumerConcurrency());
+        simpleMessageListenerContainer.setBatchSize(rabbitMqConfigReader.getResponseQueueConsumerBatchSize());
         return simpleMessageListenerContainer;
     }
 
