@@ -1,7 +1,7 @@
 package org.example.consumer.config;
 
 import lombok.NonNull;
-import org.example.consumer.rabbitmq.MessageReceiver;
+import org.example.commons.messaging.MessageReceiver;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import static org.example.consumer.rabbitmq.MessageReceiver.LISTENER_METHOD;
+import static org.example.consumer.messaging.MessageReceiverImpl.LISTENER_METHOD;
 
 @Configuration
 public class MessageListener {

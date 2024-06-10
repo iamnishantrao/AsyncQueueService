@@ -1,13 +1,15 @@
 package org.example.producer.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.example.commons.dto.RequestDto;
+import org.example.commons.messaging.MessageSender;
 import org.example.commons.model.RequestModel;
 import org.example.commons.model.ValidationError;
 import org.example.commons.validator.Validator;
-import org.example.commons.validator.requestdto.RequestDtoValidatorImpl;
-import org.example.producer.messaging.MessageSender;
+import org.example.producer.exception.MalformedRequestException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,14 +24,17 @@ public class ProducerService {
     @NonNull private final MessageSender messageSender;
     @NonNull private final Validator validator;
     @NonNull private final ModelMapper modelMapper;
+    @NonNull private final ObjectMapper objectMapper;
 
     @Autowired
     public ProducerService(@NonNull final MessageSender messageSender,
-                           @NonNull final RequestDtoValidatorImpl validator,
-                           @NonNull final ModelMapper modelMapper) {
+                           @NonNull final Validator validator,
+                           @NonNull final ModelMapper modelMapper,
+                           @NonNull final ObjectMapper objectMapper) {
         this.messageSender = messageSender;
         this.validator = validator;
         this.modelMapper = modelMapper;
+        this.objectMapper = objectMapper;
     }
 
     public void produceRequest(@NonNull final RequestDto requestDto,
@@ -37,7 +42,14 @@ public class ProducerService {
         final RequestModel requestModel = modelMapper.map(requestDto, RequestModel.class);
         log.debug("Converted request: {}", requestModel);
         requestModel.setRequestId(requestId);
-        messageSender.sendMessage(requestModel);
+        try {
+            final String serialized = this.objectMapper.writeValueAsString(requestModel);
+            log.info("Start dispatching requestId: {}", requestModel.getRequestId());
+            messageSender.sendMessage(serialized);
+            log.info("Successfully dispatched requestId: {}", requestModel.getRequestId());
+        } catch (final JsonProcessingException e) {
+            throw new MalformedRequestException("Not able to serialize request.", e);
+        }
     }
 
     public void consumeResponse(@NonNull final String response) {
