@@ -1,10 +1,7 @@
 package org.example.producer.config;
 
 import lombok.NonNull;
-import org.springframework.amqp.core.Binding;
-import org.springframework.amqp.core.BindingBuilder;
-import org.springframework.amqp.core.Queue;
-import org.springframework.amqp.core.TopicExchange;
+import org.springframework.amqp.core.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,17 +18,41 @@ public class RabbitMqCreator {
 
     @Bean
     public Queue createRequestQueue() {
-        return new Queue(rabbitMqConfigReader.getRequestQueue(), false);
+        return QueueBuilder
+                .durable(rabbitMqConfigReader.getRequestQueue())
+                .withArgument("x-dead-letter-exchange", rabbitMqConfigReader.getDlqExchange())
+                .build();
+    }
+
+    @Bean Queue createRequestQueueDLQ() {
+        return QueueBuilder
+                .durable(rabbitMqConfigReader.getRequestQueueDlq())
+                .build();
     }
 
     @Bean
     public Queue createResponseQueue() {
-        return new Queue(rabbitMqConfigReader.getResponseQueue(), false);
+        return QueueBuilder
+                .durable(rabbitMqConfigReader.getResponseQueue())
+                .build();
     }
 
     @Bean
     public TopicExchange createExchange() {
         return new TopicExchange(rabbitMqConfigReader.getExchange());
+    }
+
+    @Bean
+    public FanoutExchange createDlqFanoutExchange() {
+        return new FanoutExchange(rabbitMqConfigReader.getDlqExchange());
+    }
+
+    @Bean
+    public Binding createDeadLetterBinding(@NonNull final Queue createRequestQueueDLQ,
+                                           @NonNull final FanoutExchange createDlqFanoutExchange) {
+        return BindingBuilder
+                .bind(createRequestQueueDLQ)
+                .to(createDlqFanoutExchange);
     }
 
     @Bean

@@ -14,4 +14,6 @@ public class RabbitMqConfigReader {
     private String exchange;
     private String requestRoutingKey;
     private String responseRoutingKey;
+    private String dlqExchange;
+    private String requestQueueDlq;
 }

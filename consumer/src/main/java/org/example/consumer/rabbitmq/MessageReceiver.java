@@ -18,6 +18,6 @@ public class MessageReceiver {
     }
 
     public void receiveMessage(@NonNull final String message) {
-       consumerService.consumeMessage(message);
+        consumerService.consumeMessage(message);
     }
 }

@@ -27,6 +27,7 @@ public class MessageListener {
         final SimpleMessageListenerContainer simpleMessageListenerContainer = new SimpleMessageListenerContainer();
         simpleMessageListenerContainer.setConnectionFactory(connectionFactory);
         simpleMessageListenerContainer.setQueueNames(rabbitMqConfigReader.getRequestQueue());
+        simpleMessageListenerContainer.setDefaultRequeueRejected(false);
         simpleMessageListenerContainer.setMessageListener(messageListenerAdapter);
         return simpleMessageListenerContainer;
     }
